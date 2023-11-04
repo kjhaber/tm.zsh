@@ -1,0 +1,6 @@
+#compdef tm
+
+local -a sessions
+IFS=$'\n' sessions=( $(tmux ls -F '#{session_name}') )
+_describe -t sessions 'sessions' sessions "$@"
+

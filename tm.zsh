@@ -40,11 +40,3 @@ function tm() {
   tmux -u $change -t "$1"
 }
 
-function __tmux-sessions() {
-  local expl
-  local -a sessions
-  sessions=( ${${(f)"$(command tmux list-sessions 2> /dev/null)"}/:[ $'\t']##/:} )
-  _describe -t sessions 'sessions' sessions "$@"
-}
-compdef __tmux-sessions tm
-
